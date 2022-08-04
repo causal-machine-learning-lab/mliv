@@ -1,7 +1,3 @@
-# mliv
-
-
-```python
 from mliv.dataset.demand import gen_data
 from mliv.utils import CausalDataset
 gen_data()
@@ -17,16 +13,22 @@ from mliv.inference import DFL
 from mliv.inference import AGMM
 from mliv.inference import DeepGMM
 from mliv.inference import DFIV
-from mliv.inference import DeepIV           # Tensorflow & keras
+try:
+    from mliv.inference import DeepIV
+except:
+    pass
 
 for mod in [OneSIV,KernelIV,DualIV,DFL,AGMM,DeepGMM,DFIV,Vanilla2SLS,Poly2SLS,NN2SLS]:
-    model = mod()
-    model.config['num'] = 100
-    model.config['epochs'] = 10
-    model.fit(data)
 
-    print(mod)
+    try:
+        model = mod()
+        model.config['num'] = 100
+        model.config['epochs'] = 10
+        model.fit(data)
 
+        print(mod)
+    except:
+        print('Error: ...')
 
 try:
     model = DeepIV()
@@ -36,7 +38,4 @@ try:
 
     print(mod)
 except:
-    print(f'Error: {mod} is implemented by Tensorflow.')
-
-
-```
+    print(f'Error: ...{mod}...')

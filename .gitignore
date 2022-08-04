@@ -1,3 +1,18 @@
+# about ignore
+*Results/
+*Result/
+*results/
+*result/
+*Data/
+*data/
+*run/
+*ckpts/
+*build/
+*dist/
+*mliv.egg-info/
+*cache/
+*miniImageNet_WRN_60Epoch/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
